@@ -4,12 +4,10 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <ul>
-          <li>Início</li>
-          <li>Sobre mim</li>
-          <li>Projetos</li>
-          <li>Habilidades</li>
-        </ul>
+        <a href="_">Início</a>
+        <a href="_">Sobre mim</a>
+        <a href="_">Projetos</a>
+        <a href="_">Habilidades</a>
       </nav>
     </header>
   );
