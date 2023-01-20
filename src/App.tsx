@@ -1,13 +1,15 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import Header from './components/Header';
+import { useSelectedTheme } from './contexts';
+import Home from './pages/Home';
 import theme from './theme';
 import GlobalStyles from './theme/global';
 
 function App() {
+  const { selectedTheme } = useSelectedTheme();
+
   return (
-    <ThemeProvider theme={theme.dark}>
-      <Header />
+    <ThemeProvider theme={theme[selectedTheme]}>
+      <Home />
       <GlobalStyles />
     </ThemeProvider>
   );

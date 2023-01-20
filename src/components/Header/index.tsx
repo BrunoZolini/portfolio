@@ -1,21 +1,34 @@
-import { MdDarkMode, MdLanguage, MdOutlineLightMode } from 'react-icons/md';
+import { useSelectedTheme } from '../../contexts';
 import Button from '../Button';
 import * as S from './styles';
 
 export default function Header() {
-  const darkThemeOn = true;
+  const { selectedTheme, setSelectedTheme } = useSelectedTheme();
+  const darkThemeOn = selectedTheme === 'dark';
+
+  const handleNavigate = (id: string) => {
+    const element = document.querySelector(id);
+    if (!element) return;
+    const top = element.getBoundingClientRect().top + window.pageXOffset - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   return (
     <S.Header>
+      <a href="_">LOGO</a>
       <S.LeftContainer>
-        <a href="_">LOGO</a>
-        <S.NavLink href="_">Home</S.NavLink>
-        <S.NavLink href="_">About</S.NavLink>
-        <S.NavLink href="_">Projects</S.NavLink>
-        <S.NavLink href="_">Skills</S.NavLink>
+        <S.NavLink href="">Home</S.NavLink>
+        <S.NavLink onClick={() => handleNavigate('#about')}>About</S.NavLink>
+        <S.NavLink href="">Skills</S.NavLink>
+        <S.NavLink onClick={() => handleNavigate('#projects')}>
+          Projects
+        </S.NavLink>
       </S.LeftContainer>
       <S.RightContainer>
-        <Button type="button">Contact</Button>
+        <Button type="button">
+          <S.EmailIcon />
+          Contact
+        </Button>
 
         <p>Bruno Zolini</p>
         <img
@@ -27,18 +40,18 @@ export default function Header() {
 
         <div>
           {darkThemeOn ? (
-            <S.ChangeMode>
-              <MdDarkMode size="20" />
+            <S.ChangeMode onClick={() => setSelectedTheme('light')}>
+              <S.DarkThemeIcon size="20" />
               Dark Mode
             </S.ChangeMode>
           ) : (
-            <S.ChangeMode>
-              <MdOutlineLightMode size="20" />
+            <S.ChangeMode onClick={() => setSelectedTheme('dark')}>
+              <S.LightThemeIcon size="20" />
               Light Mode
             </S.ChangeMode>
           )}
           <S.ChangeLanguage htmlFor="language">
-            <MdLanguage size="19" />
+            <S.LanguageIcon size="19" />
             <S.Select id="language">
               <option value="valor1">Select Language</option>
               <option value="en">English(US)</option>
