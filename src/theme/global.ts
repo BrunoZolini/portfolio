@@ -10,5 +10,6 @@ export default createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.background};
+    padding: 0 10%;
   }
 `;
