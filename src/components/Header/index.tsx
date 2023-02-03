@@ -32,7 +32,7 @@ export default function Header() {
 
         <p>Bruno Zolini</p>
         <img
-          src="https://media.discordapp.net/attachments/163018412262424576/986330803661340682/b0f82515-3537-482a-851f-33819fd10a95.jpeg"
+          src="https://cdn.discordapp.com/attachments/1071041803010191362/1071046525725179914/b0f82515-3537-482a-851f-33819fd10a95.png"
           alt="A guy on the computer"
           width="50px"
           style={{ borderRadius: 5 }}
