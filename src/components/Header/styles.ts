@@ -77,30 +77,34 @@ export const ChangeMode = styled.button`
   border-radius: 2px;
   outline: inherit;
   cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+  }
 `;
 
 export const ChangeLanguage = styled.label`
   display: flex;
   align-items: center;
   margin-top: 10px;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+  }
 `;
 
 export const EmailIcon = styled(MdEmail)`
-  fill: ${({ theme }) => theme.colors.black_800};
   font-size: 16px;
 `;
 
 export const LanguageIcon = styled(MdLanguage)`
-  fill: ${({ theme }) => theme.colors.gray_50};
   font-size: 16px;
 `;
 
 export const LightThemeIcon = styled(MdOutlineLightMode)`
-  fill: ${({ theme }) => theme.colors.gray_50};
   font-size: 16px;
 `;
 
 export const DarkThemeIcon = styled(MdOutlineDarkMode)`
-  fill: ${({ theme }) => theme.colors.gray_50};
   font-size: 16px;
 `;

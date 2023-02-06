@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useSelectedTheme } from '../../contexts';
 import Button from '../Button';
+import ContactModal from '../ContactModal';
 import * as S from './styles';
 
 export default function Header() {
   const { selectedTheme, setSelectedTheme } = useSelectedTheme();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const darkThemeOn = selectedTheme === 'dark';
 
   const handleNavigate = (id: string) => {
@@ -17,18 +20,20 @@ export default function Header() {
     <S.Header>
       <a href="_">LOGO</a>
       <S.LeftContainer>
-        <S.NavLink href="">Home</S.NavLink>
-        <S.NavLink onClick={() => handleNavigate('#about')}>About</S.NavLink>
-        <S.NavLink href="">Skills</S.NavLink>
+        <S.NavLink href="">Inicio</S.NavLink>
+        <S.NavLink onClick={() => handleNavigate('#about')}>Sobre</S.NavLink>
+        <S.NavLink href="">Habilidades</S.NavLink>
         <S.NavLink onClick={() => handleNavigate('#projects')}>
-          Projects
+          Projetos
         </S.NavLink>
       </S.LeftContainer>
       <S.RightContainer>
-        <Button type="button">
+        <Button type="button" onClick={() => setIsModalOpen(true)}>
           <S.EmailIcon />
-          Contact
+          Contato
         </Button>
+
+        {isModalOpen && <ContactModal setIsModalOpen={setIsModalOpen} />}
 
         <p>Bruno Zolini</p>
         <img
@@ -42,18 +47,18 @@ export default function Header() {
           {darkThemeOn ? (
             <S.ChangeMode onClick={() => setSelectedTheme('light')}>
               <S.DarkThemeIcon size="20" />
-              Dark Mode
+              Tema Escuro
             </S.ChangeMode>
           ) : (
             <S.ChangeMode onClick={() => setSelectedTheme('dark')}>
               <S.LightThemeIcon size="20" />
-              Light Mode
+              Tema Claro
             </S.ChangeMode>
           )}
           <S.ChangeLanguage htmlFor="language">
             <S.LanguageIcon size="19" />
             <S.Select id="language">
-              <option value="valor1">Select Language</option>
+              <option value="valor1">Mudar Idioma</option>
               <option value="en">English(US)</option>
               <option value="pt-br">Português(BR)</option>
             </S.Select>
