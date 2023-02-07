@@ -15,14 +15,14 @@ export default function ContactModal({ setIsModalOpen }: ModalProps) {
     };
   }, []);
 
-  const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLDivElement).id === 'outside') setIsModalOpen(false);
+  const handleClose = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <S.Modal id="outside" onClick={(e) => handleOutsideClick(e)}>
-      <S.Container>
-        <S.Close onClick={() => setIsModalOpen(false)}>
+    <S.Modal onClick={handleClose}>
+      <S.Container onClick={(e) => e.stopPropagation()}>
+        <S.Close onClick={handleClose}>
           <MdClose size="28" />
         </S.Close>
         <S.Link
@@ -43,7 +43,7 @@ export default function ContactModal({ setIsModalOpen }: ModalProps) {
         </S.Link>
         <S.Link
           href="mailto:bruno.zolini@hotmail.com?subject=
-          Oportunidade de Trabalho: [Titulo da Vaga] at [Nome da empresa]"
+          Oportunidade de Trabalho: [Titulo da Vaga] na [Nome da empresa]"
           target="_blank"
           rel="noreferrer"
         >
