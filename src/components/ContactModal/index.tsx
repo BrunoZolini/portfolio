@@ -25,6 +25,7 @@ export default function ContactModal({ setIsModalOpen }: ModalProps) {
         <S.Close onClick={handleClose}>
           <MdClose size="28" />
         </S.Close>
+        <h1>Quer me conhecer ou entrar em contato?</h1>
         <S.Link
           href="https://www.linkedin.com/in/bruno-zolini/"
           target="_blank"

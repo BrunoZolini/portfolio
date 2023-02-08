@@ -25,13 +25,21 @@ export const Header = styled.header`
   font-weight: 400;
 `;
 
-export const LeftContainer = styled.nav`
-  gap: 10px;
+export const Logo = styled.img`
+  width: 54px;
+  margin-left: 20px;
+  border-radius: 100px;
+  box-shadow: 0 0 16px ${({ theme }) => theme.colors.gray_50};
+  &:hover {
+    box-shadow: 0 0 16px ${({ theme }) => theme.primary};
+  }
+`;
+
+export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
-
+  width: 100%;
   margin-left: 10%;
 `;
 
@@ -44,13 +52,14 @@ export const NavLink = styled.a`
   }
 `;
 
-export const RightContainer = styled.div`
-  gap: 10px;
+export const PlayerWrapper = styled.div`
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
-  margin-left: 10%;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 180px;
 `;
 
 export const ChangeLanguage = styled.label`

@@ -14,18 +14,20 @@ export const Modal = styled.div`
 `;
 
 export const Container = styled.div`
+  text-align: center;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   background-color: ${({ theme }) => theme.colors.gray_50};
   color: ${({ theme }) => theme.colors.black_800};
   width: 80%;
-  height: 30%;
+  height: 34%;
   border-radius: 20px;
+  padding: 20px;
   @media (min-width: 762px) {
-    max-width: 500px;
+    max-width: 540px;
   }
 `;
 
@@ -44,7 +46,8 @@ export const Link = styled.a`
   gap: 10px;
   text-decoration: none;
   color: inherit;
-  font-size: 30px;
+  width: fit-content;
+  font-size: 24px;
   margin-left: 10%;
   &:hover {
     color: ${({ theme }) => theme.primary};

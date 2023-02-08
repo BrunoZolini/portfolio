@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import logo from '../../assets/logo.png';
 import { useSelectedTheme } from '../../contexts';
 import Button from '../Button';
 import ContactModal from '../ContactModal';
@@ -18,16 +19,14 @@ export default function Header() {
 
   return (
     <S.Header>
-      <a href="_">LOGO</a>
-      <S.LeftContainer>
-        <S.NavLink href="">Inicio</S.NavLink>
-        <S.NavLink onClick={() => handleNavigate('#about')}>Sobre</S.NavLink>
-        <S.NavLink href="">Habilidades</S.NavLink>
+      <S.NavLink onClick={() => handleNavigate('#about')}>
+        <S.Logo src={logo} alt="logo" />
+      </S.NavLink>
+      <S.Container>
+        <S.NavLink onClick={() => handleNavigate('#about')}>Inicio</S.NavLink>
         <S.NavLink onClick={() => handleNavigate('#projects')}>
           Projetos
         </S.NavLink>
-      </S.LeftContainer>
-      <S.RightContainer>
         <Button type="button" onClick={() => setIsModalOpen(true)}>
           <S.EmailIcon />
           Contato
@@ -35,13 +34,15 @@ export default function Header() {
 
         {isModalOpen && <ContactModal setIsModalOpen={setIsModalOpen} />}
 
-        <p>Bruno Zolini</p>
-        <img
-          src="https://cdn.discordapp.com/attachments/1071041803010191362/1071046525725179914/b0f82515-3537-482a-851f-33819fd10a95.png"
-          alt="A guy on the computer"
-          width="50px"
-          style={{ borderRadius: 5 }}
-        />
+        <S.PlayerWrapper>
+          <p>Bruno Zolini</p>
+          <img
+            src="https://cdn.discordapp.com/attachments/1071041803010191362/1071046525725179914/b0f82515-3537-482a-851f-33819fd10a95.png"
+            alt="A guy on the computer"
+            width="50px"
+            style={{ borderRadius: 5 }}
+          />
+        </S.PlayerWrapper>
 
         <div>
           {darkThemeOn ? (
@@ -63,7 +64,7 @@ export default function Header() {
             </S.Select>
           </S.ChangeLanguage>
         </div>
-      </S.RightContainer>
+      </S.Container>
     </S.Header>
   );
 }
