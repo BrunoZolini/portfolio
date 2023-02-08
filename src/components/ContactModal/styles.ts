@@ -40,6 +40,8 @@ export const Close = styled.button`
 `;
 
 export const Link = styled.a`
+  display: flex;
+  gap: 10px;
   text-decoration: none;
   color: inherit;
   font-size: 30px;

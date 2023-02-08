@@ -58,9 +58,8 @@ export default function Header() {
           <S.ChangeLanguage htmlFor="language">
             <S.LanguageIcon size="19" />
             <S.Select id="language">
-              <option value="valor1">Mudar Idioma</option>
-              <option value="en">English(US)</option>
-              <option value="pt-br">Português(BR)</option>
+              <S.Option value="pt-br">Português(BR)</S.Option>
+              <S.Option value="en">English(US)</S.Option>
             </S.Select>
           </S.ChangeLanguage>
         </div>

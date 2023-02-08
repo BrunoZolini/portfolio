@@ -53,12 +53,27 @@ export const RightContainer = styled.div`
   margin-left: 10%;
 `;
 
+export const ChangeLanguage = styled.label`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  &:focus-within {
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+  }
+`;
+
 export const Select = styled.select`
   background-color: transparent;
   border: none;
   color: inherit;
   outline: none;
-  :focus {
+  padding-left: 20px;
+  &:focus {
     border: none;
     outline: none;
   }
@@ -66,27 +81,20 @@ export const Select = styled.select`
     cursor: pointer;
   }
 `;
+export const Option = styled.option`
+  background-color: ${({ theme }) => theme.muted};
+  color: ${({ theme }) => theme.colors.gray_50};
+`;
 
 export const ChangeMode = styled.button`
   display: flex;
-  gap: 3px;
+  gap: 4px;
   align-items: center;
   background-color: transparent;
   border: none;
   color: inherit;
-  border-radius: 2px;
   outline: inherit;
   cursor: pointer;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-    cursor: pointer;
-  }
-`;
-
-export const ChangeLanguage = styled.label`
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
   &:hover {
     color: ${({ theme }) => theme.primary};
     cursor: pointer;
@@ -98,6 +106,7 @@ export const EmailIcon = styled(MdEmail)`
 `;
 
 export const LanguageIcon = styled(MdLanguage)`
+  position: fixed;
   font-size: 16px;
 `;
 
