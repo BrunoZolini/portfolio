@@ -13,17 +13,17 @@ export default function Header() {
   const handleNavigate = (id: string) => {
     const element = document.querySelector(id);
     if (!element) return;
-    const top = element.getBoundingClientRect().top + window.pageXOffset - 80;
+    const top = element.getBoundingClientRect().top + window.pageXOffset - 90;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
     <S.Header>
-      <S.NavLink onClick={() => handleNavigate('#about')}>
+      <S.NavLink onClick={() => handleNavigate('#home')}>
         <S.Logo src={logo} alt="logo" />
       </S.NavLink>
       <S.Container>
-        <S.NavLink onClick={() => handleNavigate('#about')}>Inicio</S.NavLink>
+        <S.NavLink onClick={() => handleNavigate('#home')}>Inicio</S.NavLink>
         <S.NavLink onClick={() => handleNavigate('#projects')}>
           Projetos
         </S.NavLink>
